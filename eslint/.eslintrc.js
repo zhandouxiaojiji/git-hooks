@@ -9,11 +9,11 @@ module.exports = {
         }
     },
 
-    "env": {								//可能对require有用
+    "env": {								//require
         "amd": true,
     },
 
-    "globals": {							//全局变量
+    "globals": {							//global variables
     	"cc": true,
         "module": true,
         "sdkbox": true,
@@ -22,6 +22,6 @@ module.exports = {
     },
 
     "rules": {
-        "no-mixed-spaces-and-tabs": 0,		//忽略的错误
+        "no-mixed-spaces-and-tabs": 0,		//ignore errors
     },
 };

@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# 禁止直接向非master分支合并代码的钩子
+# 当执行"git merge"命令时，此钩子被触发，无参数传入
+# 如果目标分支不是master，钩子将返回非零状态码并输出错误信息到stderr，从而阻止合并提交
+
+# 获取当前分支
+current_branch=$(git symbolic-ref --short HEAD)
+
+echo "当前分支: $current_branch"
+
+# 检查当前分支是否为master
+if [ "$current_branch" != "master" ]; then
+  echo "错误: 禁止向非master分支('$current_branch')合并代码!" >&2
+  echo "请切换到master分支后再进行合并操作。" >&2
+  exit 1
+fi
+
+# 如果是master分支，允许合并
+exit 0 

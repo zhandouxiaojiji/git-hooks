@@ -1,0 +1,11 @@
+#!/bin/sh
+# .git/hooks/prepare-commit-msg
+
+# 检测是否为真正的合并提交（存在 .git/MERGE_MSG 文件且 $2 为 "merge"）
+if [ -f ".git/MERGE_MSG" ] && [ "$2" = "merge" ]; then
+  current_branch=$(git symbolic-ref --short HEAD)
+  if [ "$current_branch" != "master" ]; then
+    echo "错误：禁止向非 master 分支合并！" >&2
+    exit 1
+  fi
+fi

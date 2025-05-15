@@ -7,3 +7,6 @@
 + Copy pre-commit to ./git/hooks and chmod 775 pre-commit.
 + Copy .luacheckrc to your workspace.
 + Luacheck will automatic check your modified lua code before you run git commit.
+
+# Disallow branches other than master to use merge
++ Copy merge/* to ./git/hooks
